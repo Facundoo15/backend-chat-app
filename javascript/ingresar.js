@@ -17,7 +17,7 @@ continuarBoton.onclick = () => {
             if (xhr.status === 200) {
                 let data = xhr.response;
                 if (data == "success") {
-                    location.href = "usuarios.php";
+                    location.href = "/usuarios.php";
                 } else {
                     errorText.style.display = "block";
                     errorText.textContent = data;
