@@ -16,32 +16,31 @@
     <div class="wrapper">
         <section class="form singup">
             <header>Aplicación de mensajeria</header>
-            <form action="#">
+            <form action="#" enctype="multipart/form-data">
                 <div class="error-txt">
-                    Este es un mensaje de error
                 </div>
                 <div class="name-details">
                     <div class="field input">
                         <label>Nombre</label>
-                        <input type="text" placeholder="Ingresa tu nombre">
+                        <input type="text" name="nombre" placeholder="Ingresa tu nombre" required>
                     </div>
                     <div class="field input">
                         <label>Apellidos</label>
-                        <input type="text" placeholder="Ingresa tu apellido">
+                        <input type="text" name="apellidos" placeholder="Ingresa tu apellido" required>
                     </div>
                 </div>
                 <div class="field input">
                     <label>Correo electrónico</label>
-                    <input type="email" placeholder="Ingresa tu correo">
+                    <input type="email" name="email" placeholder="Ingresa tu correo" required>
                 </div>
                 <div class="field input">
                     <label>Contraseña</label>
-                    <input type="password" placeholder="Ingresa tu contraseña">
+                    <input type="password" name="password" placeholder="Ingresa tu contraseña" required>
                     <i class="fas fa-eye"></i>
                 </div>
                 <div class="field image">
                     <label>Imagen de perfil</label>
-                    <input type="file">
+                    <input type="file" name="perfil">
                 </div>
                 <div class="field button">
                     <input type="submit" value="Registrarme">
@@ -55,6 +54,7 @@
     </div>
 
     <script src="javascript/ver-password.js"></script>
+    <script src="javascript/ingresar.js"></script>
 
 
 </body>
