@@ -1,7 +1,14 @@
+<?php
 
-<?php ?>
+include_once "php/api_usuarios.php";
 
-<?php include_once "header.php" ?>
+session_start();
+if (!isset($_SESSION['id_unique'])) {
+    header('location: login.php');
+}
+?>
+
+<?php include_once "php/header.php" ?>
 
 <body>
 
@@ -9,19 +16,21 @@
         <section class="users">
             <header>
 
-            <?php 
-            
-            ?>
+                <?php
+                $id_unique = $_SESSION['id_unique'];
+                $usuario = API_USUARIO::buscarUsuario($id_unique);
+                ?>
 
                 <div class="content">
-                    <img src="#" alt="">
+                    <img src="php/img/<?php echo $usuario['img'] ?>" alt="">
                     <div class="details">
                         <span>
-                            Coding Nepal
+                            <?php echo $usuario['nombre'] . " " . $usuario['apellidos'] ?>
                         </span>
-                        <p>Active now</p>
+                        <p>
+                            <?php echo $usuario['status'] ?>
+                        </p>
                     </div>
-
                 </div>
 
                 <a href="#" class="logout">Cerrar sesión</a>
@@ -34,32 +43,7 @@
             </div>
 
             <div class="users-list">
-                <a href="#">
-                    <div class="content">
-                        <img src="assets/JEANPI.PNG" alt="">
-                        <div class="details">
-                            <span>Favio angulo</span>
-                            <p>Este es un mensaje</p>
-                        </div>
-                    </div>
-
-                    <div class="status-dot"><i class="fa fa-circle"></i></div>
-                </a>
-
-
-                <a href="#">
-                    <div class="content">
-                        <img src="#" alt="">
-                        <div class="details">
-                            <span>Favio angulo</span>
-                            <p>Este es un mensaje</p>
-                        </div>
-                    </div>
-
-                    <div class="status-dot"><i class="fa fa-circle"></i></div>
-                </a>
-
-
+               
             </div>
 
 

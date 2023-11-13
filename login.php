@@ -1,4 +1,4 @@
-<?php include_once "header.php" ?>
+<?php include_once "php/header.php" ?>
 <body>
 
     <div class="wrapper">
@@ -21,7 +21,7 @@
                 </div>
             </form>
 
-            <div class="link">¿Aún no te has registrado? <a href="registro.php">Registrarme ahora</a></div>
+            <div class="link">¿Aún no te has registrado?  <a href="registro.php">Registrarme ahora</a></div>
 
 
         </section>
