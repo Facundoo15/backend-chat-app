@@ -34,6 +34,7 @@ if (!empty($nombre) && !empty($apellidos) && !empty($email) && !empty($password)
                             $result = API_USUARIO::listarEmails($email);
                             if ($result != null) {
                                 $_SESSION['id_unique'] = $result[0]['id_unique'];
+                                echo "success";
                             }
                         }
                     }
@@ -49,7 +50,7 @@ if (!empty($nombre) && !empty($apellidos) && !empty($email) && !empty($password)
         echo "Ingresa un email correcto!";
     }
 } else {
-
+    echo "Campos incompletos";
 }
 
 
