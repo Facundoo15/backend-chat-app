@@ -14,11 +14,21 @@ sendBtn.onclick = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 inputField.value = "";
+                scrollBottom();
             }
         }
     }
     let formData = new FormData(formulario);
     xhr.send(formData);
+}
+
+chatBox.onmouseenter = () => {
+    chatBox.classList.add("active");
+}
+
+
+chatBox.onmouseleave = () => {
+    chatBox.classList.remove("active");
 }
 
 setInterval(() => {
@@ -29,6 +39,9 @@ setInterval(() => {
             if (xhr.status === 200) {
                 let data = xhr.response;
                 chatBox.innerHTML = data;
+                if (!chatBox.classList.contains("active")) {
+                    scrollBottom();
+                }
             }
         }
     }
@@ -36,3 +49,8 @@ setInterval(() => {
     let formData = new FormData(formulario);
     xhr.send(formData);
 }, 500);
+
+
+function scrollBottom() {
+    chatBox.scrollTop = chatBox.scrollHeight;
+}

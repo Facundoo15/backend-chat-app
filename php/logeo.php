@@ -9,8 +9,14 @@ $password = $_POST['password'];
 if (!empty($email) && !empty($password)) {
     $usuario = API_USUARIO::autenticarUsuario($email, $password);
     if ($usuario != null) {
-        $_SESSION['id_unique'] = $usuario['id_unique'];
-        echo "success";
+        $status = "Activo ahora";
+        $id_unique = $usuario['id_unique'];
+        $result = API_USUARIO::actualizarEstado($status, $usuario['id_unique']);
+        if ($result != null) {
+            $_SESSION['id_unique'] = $usuario['id_unique'];
+            echo "success";
+        }
+
     } else {
         echo "Correo o contraseña inválidos";
     }

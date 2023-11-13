@@ -3,19 +3,29 @@
 foreach ($usuarios as $usuario) {
 
 
+    
+
     $ultimoMensaje = API_USUARIO::ultimoMensaje($usuario['id_unique'], $outgoing_msg_id);
     if($ultimoMensaje != null){
         $out = $ultimoMensaje['mensaje'];
     }else{
         $out = 'No hay último mensaje';
     }
+    
 
     (strlen($out) > 28) ? $msg = substr($out,0,28).'...' : $msg = $out;
-    if($outgoing_msg_id == $ultimoMensaje['outgoing_msg_id']){
-        $you = "Tú: ";
+    if($outgoing_msg_id == $out){
+        $you = "Tu: ";
     }else{
         $you = "";
     }
+
+    if($usuario['status'] == "Desconectado"){
+        $offline = "Desconectado";
+    }else{
+        $offline = "";
+    }
+
 
     $result .= '<a href="chat.php?id_usuario='.$usuario['id_unique'].'">
     <div class="content">
@@ -26,7 +36,7 @@ foreach ($usuarios as $usuario) {
         </div>
     </div>
 
-    <div class="status-dot"><i class="fa fa-circle"></i></div>
+    <div class="status-dot" '.$offline.' ><i class="fa fa-circle"></i></div>
 </a>';
 }
 
