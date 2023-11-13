@@ -44,6 +44,35 @@ class API_USUARIO
         return $result;
     }
 
+    public static function buscarUsuario($id_unique)
+    {
+        $conexion = DATABASE::crearInstancia();
+        $sql = "SELECT * FROM usuarios WHERE id_unique = {$id_unique}";
+        $consulta = $conexion->prepare($sql);
+        $consulta->execute();
+        $result = $consulta->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public static function listarUsuarios($id_unique)
+    {
+        $conexion = DATABASE::crearInstancia();
+        $sql = "SELECT * FROM usuarios WHERE id_unique != {$id_unique} ";
+        $consulta = $conexion->prepare($sql);
+        $consulta->execute();
+        $result = $consulta->fetchAll();
+        return $result;
+    }
+
+    public static function buscarPorNombreApellido($iniciales)
+    {
+        $conexion = DATABASE::crearInstancia();
+        $sql = "SELECT * FROM usuarios WHERE nombre LIKE '%{$iniciales}%' OR apellidos LIKE '%{$iniciales}%'";
+        $consulta = $conexion->prepare($sql);
+        $consulta->execute();
+        $result = $consulta->fetchAll();
+        return $result;
+    }
 
 }
 
