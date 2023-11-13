@@ -1,4 +1,4 @@
-const formulario = document.querySelector(".singup form");
+const formulario = document.querySelector(".login form");
 const continuarBoton = formulario.querySelector(".button input")
 const errorText = formulario.querySelector(".error-txt");
 
@@ -11,7 +11,7 @@ formulario.onsubmit = (e) => {
 
 continuarBoton.onclick = () => {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "php/ingresar.php", true);
+    xhr.open("POST", "php/logeo.php", true);
     xhr.onload = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {

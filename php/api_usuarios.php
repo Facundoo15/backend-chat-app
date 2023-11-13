@@ -34,6 +34,16 @@ class API_USUARIO
         return $consulta->fetchAll();
     }
 
+    public static function autenticarUsuario($email, $password)
+    {
+        $conexion = DATABASE::crearInstancia();
+        $sql = "SELECT * FROM usuarios WHERE email = '{$email}' AND password = '{$password}'";
+        $consulta = $conexion->prepare($sql);
+        $consulta->execute();
+        $result = $consulta->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
 
 }
 
