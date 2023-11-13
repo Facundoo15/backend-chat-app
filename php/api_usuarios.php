@@ -95,6 +95,17 @@ class API_USUARIO
         return $result;
     }
 
+
+    public static function ultimoMensaje($id_unique, $outgoing_msg_id)
+    {
+        $conexion = DATABASE::crearInstancia();
+        $sql = "SELECT * FROM mensajes WHERE (incoming_msg_id = {$id_unique} OR outgoing_msg_id = {$id_unique}) AND (outgoing_msg_id = {$outgoing_msg_id} OR outgoing_msg_id = {$outgoing_msg_id}) ORDER BY id_mensaje DESC LIMIT 1";
+        $consulta = $conexion->prepare($sql);
+        $consulta->execute();
+        $result = $consulta->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
 }
 
 

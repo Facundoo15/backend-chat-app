@@ -3,6 +3,7 @@
 include_once "api_usuarios.php";
 session_start();
 
+$outgoing_msg_id = $_SESSION["id_unique"];
 $usuarios = API_USUARIO::listarUsuarios($_SESSION['id_unique']);
 $result = "";
 
