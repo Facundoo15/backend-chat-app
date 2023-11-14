@@ -33,7 +33,7 @@ if (!isset($_SESSION['id_unique'])) {
                     </div>
                 </div>
 
-                <a href="#" class="logout">Cerrar sesión</a>
+                <a href="php/desconectar.php?logout_id=<?php echo $usuario['id_unique'] ?>" class="logout">Cerrar sesión</a>
             </header>
 
             <div class="search">

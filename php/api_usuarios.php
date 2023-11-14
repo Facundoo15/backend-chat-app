@@ -64,10 +64,11 @@ class API_USUARIO
         return $result;
     }
 
-    public static function buscarPorNombreApellido($iniciales)
+    public static function buscarPorNombreApellido($iniciales, $id_unique)
     {
+
         $conexion = DATABASE::crearInstancia();
-        $sql = "SELECT * FROM usuarios WHERE nombre LIKE '%{$iniciales}%' OR apellidos LIKE '%{$iniciales}%'";
+        $sql = "SELECT * FROM usuarios WHERE id_unique != {$id_unique} AND nombre LIKE '%{$iniciales}%' OR apellidos LIKE '%{$iniciales}%'";
         $consulta = $conexion->prepare($sql);
         $consulta->execute();
         $result = $consulta->fetchAll();
@@ -103,6 +104,14 @@ class API_USUARIO
         $consulta = $conexion->prepare($sql);
         $consulta->execute();
         $result = $consulta->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public static function actualizarEstado($estado, $id_unique){
+        $conexion = DATABASE::crearInstancia();
+        $sql = "UPDATE usuarios SET status = '{$estado}' WHERE id_unique = {$id_unique}";
+        $consulta = $conexion->prepare($sql);
+        $result = $consulta->execute();
         return $result;
     }
 
