@@ -1,29 +1,36 @@
 <?php
 
+// Código para validar el registro del usuario
+
 include_once "api_usuarios.php";
 
 session_start();
 
+
+//Obtienen los inputs
 $nombre = $_POST['nombre'];
 $apellidos = $_POST['apellidos'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
+
+//Verifican que no estén vacios
 if (!empty($nombre) && !empty($apellidos) && !empty($email) && !empty($password)) {
 
+    //Valida que sea un email correcto
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $emailResult = API_USUARIO::buscarEmail($email);
+        $emailResult = API_USUARIO::buscarEmail($email); // Busca para ver si ya está registrado o no
         if ($emailResult != null) {
             echo "¡Este correo ya está registrado!";
         } else {
-            if (isset($_FILES['perfil'])) {
+            if (isset($_FILES['perfil'])) { // Se le asigna un nombre a la imagen
                 $img_name = $_FILES['perfil']['name'];
                 $img_type = $_FILES['perfil']['type'];
                 $tmp_name = $_FILES['perfil']['tmp_name'];
                 $img_explode = explode('.', $img_name);
                 $img_ext = end($img_explode);
-                $extensions = ['png', 'jpeg', 'jpg'];
-                if (in_array($img_ext, $extensions)) {
+                $extensions = ['png', 'jpeg', 'jpg']; // Formato permitido de la imagen
+                if (in_array($img_ext, $extensions)) { // Se registra el usuario
                     $time = time();
                     $new_img_name = $time . $img_name;
                     if (move_uploaded_file($tmp_name, "img/" . $new_img_name)) {

@@ -1,5 +1,8 @@
 <?php
 
+// Extracto de código para manejarla búsqueda de usuarios
+
+
 session_start();
 
 include_once "api_usuarios.php";

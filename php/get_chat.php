@@ -1,5 +1,7 @@
 <?php
 
+// Porción de código para obtener el chat con todas sus propiedades
+
 include_once "api_usuarios.php";
 
 session_start();

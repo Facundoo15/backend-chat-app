@@ -1,4 +1,5 @@
 <?php
+// Api de usuarios, contentiendo la instancia de la BD para las querys
 
 include_once "config.php";
 

@@ -1,3 +1,4 @@
+// Clase para manejar los eventos del chat
 const formulario = document.querySelector(".typing-area");
 const inputField = formulario.querySelector(".input-field");
 const sendBtn = formulario.querySelector("button");

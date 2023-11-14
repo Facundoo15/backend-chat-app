@@ -1,5 +1,7 @@
 <?php
 
+// Validaciones para iniciar sesión
+
 include_once "api_usuarios.php";
 session_start();
 

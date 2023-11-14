@@ -1,5 +1,6 @@
 <?php
 
+// Código para mostrar la lista de usuarios!
 include_once "api_usuarios.php";
 session_start();
 

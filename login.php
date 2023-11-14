@@ -1,3 +1,5 @@
+
+<!-- App de mensajeria -->
 <?php include_once "php/header.php" ?>
 <body>
 
