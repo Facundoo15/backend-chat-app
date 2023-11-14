@@ -74,6 +74,27 @@ class API_USUARIO
         return $result;
     }
 
+    public static function enviarMensaje($outgoing_id, $incoming_id, $message)
+    {
+        $conexion = DATABASE::crearInstancia();
+        $sql = "INSERT INTO mensajes (incoming_msg_id, outgoing_msg_id, mensaje) VALUES ({$incoming_id}, {$outgoing_id}, '{$message}')";
+        $consulta = $conexion->prepare($sql);
+        $result = $consulta->execute();
+        return $result;
+    }
+
+    public static function obtenerChat($outgoing_msg_id, $incoming_msg_id)
+    {
+        $conexion = DATABASE::crearInstancia();
+        $sql = "SELECT * FROM mensajes 
+        LEFT JOIN usuarios ON usuarios.id_unique = mensajes.outgoing_msg_id
+        WHERE (outgoing_msg_id = {$outgoing_msg_id} AND incoming_msg_id = {$incoming_msg_id}) OR (outgoing_msg_id = {$incoming_msg_id} AND incoming_msg_id = {$outgoing_msg_id}) ORDER BY id_mensaje";
+        $consulta = $conexion->prepare($sql);
+        $consulta->execute();
+        $result = $consulta->fetchAll();
+        return $result;
+    }
+
 }
 
 
