@@ -2,6 +2,8 @@
 
 include_once "php/api_usuarios.php";
 
+// Interfaz y variables del chat
+
 session_start();
 if (!isset($_SESSION['id_unique'])) {
     header('location: login.php');

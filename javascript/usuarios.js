@@ -2,6 +2,7 @@ const searchBar = document.querySelector(".users .search input");
 const searchBtn = document.querySelector(".users .search button"),
     listaUsuarios = document.querySelector(".users .users-list");
 
+// Toogle para mostrar o ocultar el botón de búsqueda en la página de usuarios
 searchBtn.onclick = () => {
     searchBar.classList.toggle("active");
     searchBar.focus();
@@ -9,6 +10,7 @@ searchBtn.onclick = () => {
     searchBar.value = "";
 }
 
+// Petición para buscar un elemento 
 searchBar.onkeyup = () => {
     let searchTerm = searchBar.value;
     if (searchTerm != "") {
@@ -30,7 +32,7 @@ searchBar.onkeyup = () => {
     xhr.send("searchTerm=" + searchTerm);
 }
 
-
+// Listar usuarios con GET
 setInterval(() => {
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "php/lista_usuarios.php", true);

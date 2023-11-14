@@ -1,5 +1,5 @@
 <?php
-
+// Porción de código para cerrar la sesión del programa
 session_start();
 
 if(isset($_SESSION['id_unique'])){

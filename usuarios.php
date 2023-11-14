@@ -1,4 +1,5 @@
 <?php
+// Interfaz para listar a los usuarios en línea, desconectados, ultimo mensaje y disponibles
 
 include_once "php/api_usuarios.php";
 

@@ -1,5 +1,7 @@
 <?php
 
+// Código para mostrar a los usuarios
+
 foreach ($usuarios as $usuario) {
 
 

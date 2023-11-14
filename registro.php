@@ -1,3 +1,5 @@
+<!-- Formularios del registro -->
+
 <?php include_once "php/header.php" ?>
 <body>
 

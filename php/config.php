@@ -1,5 +1,5 @@
 <?php
-
+// Clase para la configuración de la base de datos
 class DATABASE
 {
 

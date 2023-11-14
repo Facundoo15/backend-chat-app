@@ -1,5 +1,7 @@
 <?php
 
+// Código para enviar mensajes del chat
+
 include_once "api_usuarios.php";
 
 session_start();

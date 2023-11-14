@@ -1,3 +1,5 @@
+
+<!-- Header de la app -->
 <!DOCTYPE html>
 <html lang="en">
 
